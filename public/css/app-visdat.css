@@ -198,12 +198,38 @@
 
 .circle {
 	display: inline-block;
-	width: 200px;
-	height: 200px;
-	background: red;
+	width: 150px;
+	height: 150px;
+	background-position: center center;
+	background-size: cover;
+	border: 1px solid white;
 	-moz-border-radius: 500px;
 	-webkit-border-radius: 500px;
 	border-radius: 500px;
+}
+
+.image-atp250 {
+	background-image: url("../SeriesLogo/ATP250Logo.png");
+}
+
+.image-atp500 {
+	background-image: url("../SeriesLogo/ATP500Logo.png");
+}
+
+.image-atp1000 {
+	background-image: url("../SeriesLogo/ATP1000Logo.png");
+}
+
+.image-atpfinals {
+	background-image: url("../SeriesLogo/ATPFinalsLogo.png");
+}
+
+.image-grandslam {
+	background-image: url("../SeriesLogo/GrandSlamLogo.png");
+}
+
+.image-summerolympic {
+	background-image: url("../SeriesLogo/SummerOlympicLogo.png");
 }
 
 .plot-div {
