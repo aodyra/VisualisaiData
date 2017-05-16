@@ -43,7 +43,7 @@
               "theme": "light",
               "dataProvider": [ {
                 "continent": "Europe",
-                "tournament": 35
+                "tournament": 35,
               }, {
                 "continent": "North America",
                 "tournament": 14
@@ -58,8 +58,11 @@
                 "tournament": 5
               }, {
                 "continent": "Africa",
-                "tournament": 1
+                "tournament": 1,
               } ],
+              "handDrawn": true,
+              "pullOutRadius": 0,
+              "radius": 90,
               "valueField": "tournament",
               "titleField": "continent",
               "balloon":{
@@ -116,7 +119,7 @@
 
             var chart = AmCharts.makeChart("chartdivbar", {
                 "type": "serial",
-              "theme": "light",
+                "theme": "dar",
                 "legend": {
                     "horizontalGap": 10,
                     "maxColumns": 1,
@@ -231,9 +234,18 @@
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]",
                     "lineAlpha": 0.3,
+                    "title": "Grand Slam",
+                    "type": "column",
+                    "fillColors": "#491c5b",
+                    "valueField": "grand_slam"
+                }, {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
                     "title": "ATP World Tour Masters 250",
                     "type": "column",
-                "color": "#000000",
+                    "fillColors": "#db7400",
                     "valueField": "atp_250"
                 }, {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
@@ -242,7 +254,7 @@
                     "lineAlpha": 0.3,
                     "title": "ATP World Tour Masters 500",
                     "type": "column",
-                "color": "#000000",
+                    "fillColors": "#26774c",
                     "valueField": "atp_500"
                 }, {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
@@ -251,17 +263,8 @@
                     "lineAlpha": 0.3,
                     "title": "ATP World Tour Masters 1000",
                     "type": "column",
-                "color": "#000000",
+                    "fillColors": "#1d4975",
                     "valueField": "atp_1000"
-                }, {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
-                    "lineAlpha": 0.3,
-                    "title": "Grand Slam",
-                    "type": "column",
-                "color": "#000000",
-                    "valueField": "grand_slam"
                 }, {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
                     "fillAlphas": 0.8,
@@ -269,7 +272,7 @@
                     "lineAlpha": 0.3,
                     "title": "ATP World Tour Finals",
                     "type": "column",
-                "color": "#000000",
+                    "fillColors": "#fc2e2e",
                     "valueField": "atp_finals"
                 }, {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
@@ -278,7 +281,7 @@
                     "lineAlpha": 0.3,
                     "title": "Summer Olympic",
                     "type": "column",
-                "color": "#000000",
+                    "fillColors": "#4c0606",
                     "valueField": "summer_olympic"
                 }],
                 "categoryField": "month",
@@ -361,7 +364,7 @@
                                 <div id="chartdiv" class="chart-div"></div>
                             </div>
                             <div style="background-color: #b3e5fc; height: 200px">
-                                <div id="chartdivbar"></div> 
+                                <div id="chartdivbar"></div>
                             </div>
                             <div style="background-color: green; height: 200px">
                             </div>
