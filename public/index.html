@@ -62,7 +62,7 @@
               } ],
               "handDrawn": true,
               "pullOutRadius": 0,
-              "radius": 90,
+              "radius": 80,
               "valueField": "tournament",
               "titleField": "continent",
               "balloon":{
@@ -108,7 +108,10 @@
 
             var changeMap = function(event) {
                 var elemt = $(event.target);
+                console.log(elemt.text());
                 typeMap = elemt.text();
+                $("#month-tournament a").removeClass("active");
+                $(event.target).addClass("active");
                 changeMapFrame();
             }
 
@@ -301,6 +304,305 @@
 
             });
 
+            var chart = AmCharts.makeChart("chartnation", {
+                "type": "serial",
+                "theme": "light",
+                "legend": {
+                    "horizontalGap": 10,
+                    "maxColumns": 1,
+                    "position": "right",
+                    "useGraphSettings": true,
+                    "markerSize": 10
+                },
+                "dataProvider": [{
+                    "nation": "Spain",
+                    "single" : 10,
+                    "double" : 10,
+                    "single_winner" : "Rafael Nadal, Pablo Carreno Busta, Feliciano Lopez, Roberto Bautista Agut, Nicolas Almagro, Albert Ramos-Vinolas, Fernando Verdasco",
+                    "double_winner" : "Rafael Nadal, Pablo Carreno Busta, Marc Lopez, Feliciano Lopez, Marcel Granollers, David Marrero, Guillermo Garcia-Lopez"
+                    // "single_summer_olympic": 1,
+                    // "single_grand_slam": 1,
+                    // "single_atp_finals": 1,
+                    // "single_masters_1000": 3,
+                    // "single_masters_500": 3,
+                }, {
+                    "nation": "France",
+                    "single" : 5,
+                    "double" : 10, 
+                    "single_winner" : "Nicolas Mahut, Richard Gasquet, Gael Monfils, Lucas Pouille",
+                    "double_winner" : "Nicolas Mahut, Edouard Roger-Vasselin, Fabrice Martin"
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "nation": "United Kingdom",
+                    "single" : 9,
+                    "double" : 5,
+                    "single_winner" : "Andy Murray",
+                    "double_winner" : "Jamie Murray, Dominic Inglot"
+                    // "single_grand_slam": 2,
+                    // "single_masters_1000": 4,
+                    // "single_masters_250": 1,
+                }, {
+                    "nation": "USA",
+                    "single" : 2,
+                    "double" : 9,
+                    "mixed" : 1,
+                    "single_winner" : "Steve Johnson, Sam Querrey",
+                    "double_winner" : "Jack Sock, Bob Bryan, Mike Bryan, Rajeev Ram, Steve Johnson, Sam Querrey, John Isner, Eric Butorac, Scott Lipsky",
+                    "mixed_winner" : "Jack Sock"
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "nation": "Croatia",
+                    "single" : 4,
+                    "double" : 6,
+                    "mixed" : 1,
+                    "single_winner" : "Marin Cilic, Ivo Karlovic",
+                    "double_winner" : "Mate Pavic, Ivan Dodig",
+                    "mixed_winner" : "Mate Pavic"
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "nation": "Argentina",
+                    "single" : 4,
+                    "double" : 6,
+                    "single_winner" : "Federico Delbonis, Juan Martin del Potro, Juan Monaco, Diego Schwartzman",
+                    "double_winner" : "Horacio Zeballos, Guillermo Duran, Maximo Gonzalez, Andres Molteni"
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "nation": "Australia",
+                    "single" : 3,
+                    "double" : 6,
+                    "single_winner" : "Nick Kyrgios",
+                    "double_winner" : "John Peers, Sam Groth, Chris Guccione"
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "nation": "Serbia",
+                    "single" : 8,
+                    "single_winner" : "Novak Djokovic, Viktor Troicki"
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "nation": "Finland",
+                    "double" : 7,
+                    "mixed" : 1,
+                    "double_winner" : "Henri Kontinen",
+                    "mixed_winner"  : "Henri Kontinen"
+                }, {
+                    "nation": "Brazil",
+                    "double" : 6,
+                    "mixed" : 1,
+                    "double_winner" : "Bruno Soares, Marcelo Melo",
+                    "mixed_winner" : "Bruno Soares"
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }],
+                "valueAxes": [{
+                    "stackType": "regular",
+                    "axisAlpha": 0.5,
+                    "gridAlpha": 0
+                }],
+                "graphs": [{
+                    "balloonText": "<b>[[single_winner]]</b>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Men Single",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "single"
+                }, {
+                    "balloonText": "<b>[[double_winner]]</b>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Men Double",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "double"
+                }, {
+                    "balloonText": "<b>[[mixed_winner]]</b>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Mixed Double",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "mixed"
+                }],
+                "rotate": true,
+                "bulletOffset": 10,
+                "bulletSize": 52,
+                "categoryField": "nation",
+                "categoryAxis": {
+                    "gridPosition": "start",
+                    "axisAlpha": 0,
+                    "gridAlpha": 0,
+                    "position": "left"
+                },
+                "export": {
+                    "enabled": true
+                 }
+            });
+
+            var chart = AmCharts.makeChart("chartplayer", {
+                "type": "serial",
+                "theme": "light",
+                "legend": {
+                    "horizontalGap": 10,
+                    "maxColumns": 1,
+                    "position": "right",
+                    "useGraphSettings": true,
+                    "markerSize": 10
+                },
+                "dataProvider": [{
+                    "name": "Andy Murray",
+                    "single" : 9
+                    // "single_summer_olympic": 1,
+                    // "single_grand_slam": 1,
+                    // "single_atp_finals": 1,
+                    // "single_masters_1000": 3,
+                    // "single_masters_500": 3,
+                }, {
+                    "name": "Henri Kontinen",
+                    "double" : 7,
+                    "mixed" : 1
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "name": "Novak Djokovic",
+                    "single" : 7
+                    // "single_grand_slam": 2,
+                    // "single_masters_1000": 4,
+                    // "single_masters_250": 1,
+                }, {
+                    "name": "Nicolas Mahut",
+                    "single" : 1,
+                    "double" : 6
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "name": "Pierre-Hugues Herbert",
+                    "double" : 5
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "name": "Mate Pavic",
+                    "double" : 4,
+                    "mixed" : 1
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "name": "John Peers",
+                    "double" : 5
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "name": "Stan Wawrinka",
+                    "single" : 4
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }, {
+                    "name": "Bruno Soares",
+                    "double" : 3,
+                    "mixed" : 1        
+                }, {
+                    "name": "Rafael Nadal",
+                    "single" : 2,
+                    "double" : 2
+                    // "double_atp_finals": 1,
+                    // "double_atp_1000": 1,
+                    // "double_atp_500": 1,
+                    // "double_atp_250": 4,
+                    // "mixed_grand_slam": 1
+                }],
+                "valueAxes": [{
+                    "stackType": "regular",
+                    "axisAlpha": 0.5,
+                    "gridAlpha": 0
+                }],
+                "graphs": [{
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Men Single",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "single"
+                }, {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Men Double",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "double"
+                }, {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Mixed Double",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "mixed"
+                }],
+                "rotate": true,
+                "categoryField": "name",
+                "categoryAxis": {
+                    "gridPosition": "start",
+                    "axisAlpha": 0,
+                    "gridAlpha": 0,
+                    "position": "left"
+                },
+                "export": {
+                    "enabled": true
+                 }
+            });
+
             $(document).ready(function() {
                 $('#fullpage').fullpage({
                   sectionsColor: ['#ffffff', '#4BBFC3', 'whitesmoke', '#ccddff', '#7BAABE',],
@@ -318,10 +620,10 @@
 
     <body>
         <ul id="menu">
-            <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First slide</a></li>
-            <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
-            <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
-            <li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+            <li data-menuanchor="firstPage" class="active"><a href="#firstPage">World</a></li>
+            <li data-menuanchor="secondPage"><a href="#secondPage">ATP</a></li>
+            <li data-menuanchor="3rdPage"><a href="#3rdPage">Tournament Map</a></li>
+            <li data-menuanchor="4thpage"><a href="#4thpage">Detiled Info</a></li>
         </ul>
 
         <div id="fullpage">
@@ -329,7 +631,16 @@
                 <img src="1101039.jpg" alt="feryandi"/>
             </div>
             <div class="section" id="section1">
-                <div class="slide active" id="slide1">
+                <div class="intro">
+                    <p>
+                    Association of Tennis Professionals (ATP) is an association formed in 1972 to protect the interest of male tennis players. Since 1990, ATP organized worldwide tennis tour for men, currently called ATP World Tour.
+
+                    ATP World Tour is an annual event consisting of series of tournaments over the world.
+
+                    This Visualization will show the distribution of the tournaments over the world, the flow of the tournaments, and summary of the tournaments from ATP World Tour 2016.
+                    </p>
+                </div>
+                <!-- <div class="slide active" id="slide1">
                     <div class="intro">
                         <h1>Around the world scrolling</h1>
                         <p>Go to the first section and scroll up or to the last one and scroll down to see how it works.</p>
@@ -340,7 +651,7 @@
                 </div>
                 <div class="slide" id="slide3">
                     <h1>Slide 3</h1>
-                </div>
+                </div> -->
 
             </div>
             <div class="section" id="section2">
@@ -350,9 +661,11 @@
                             <p>Your browser does not support iframes.</p>
                         </iframe>
                     </div>
-                    <div class="col-lg-12">
-                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</button>
-                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Course</button>
+                    <div id="line_toggle" class="col-lg-12 m-b-xs" style="text-align: left; padding-top: 5px;">
+                        <div class="btn-group btn-group-justified">
+                            <a type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</a>
+                            <a type="button" class="btn btn-default" onclick="changeLine(event)">Course</a>
+                        </div>
                     </div>
                     <div class="col-lg-12 m-t-xs">
                         <div id="month-tournament" class="btn-group btn-group-justified">
@@ -371,28 +684,23 @@
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">DEC</a>
                         </div>
                     </div>
-                    <div id="line_toggle" class="col-lg-12 m-b-xs" style="text-align: left; padding-top: 5px;">
-                        <div class="btn-group btn-group-justified">
-                            <a type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</a>
-                            <a type="button" class="btn btn-default" onclick="changeLine(event)">Course</a>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="section" id="section3">
-                <div id="gallerychart">
-                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee;" onclick="openModal(this);">
+                <div>
+                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee;">
                         <div id="chartdiv" style="width: 100%; height: 250px"></div>
                     </div>
-                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee;" onclick="openModal(this);">
+                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee;">
                         <div id="chartdivbar" style="width: 100%; height: 250px"></div>
                     </div>
-                    <div class="col-lg-6 plot-div" style="background-color: yellow; height: 250px" onclick="openModal(this);">
+                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee">
+                        <div id="chartnation" style="width: 100%; height: 250px"></div>
                     </div>
-                    <div class="col-lg-6 plot-div" style="background-color: green; height: 250px" onclick="openModal(this);">
+                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee">
+                        <div id="chartplayer" style="width: 100%; height: 250px"></div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
             </div>
         </div>
         <div id="myModal" class="modal fade" role="dialog">
