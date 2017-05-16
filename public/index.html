@@ -44,27 +44,34 @@
               "dataProvider": [ {
                 "continent": "Europe",
                 "tournament": 35,
+                "desc": "<br><p align='justify' style='font-size:10px'> 20 ATP 250 <br> 8 ATP 500 <br> 4 ATP 1000 <br> 1 ATP Finals <br> 2 Grand Slam</p>"
               }, {
                 "continent": "North America",
-                "tournament": 14
+                "tournament": 14,
+                "desc": "<br><p align='justify' style='font-size:10px'> 7 ATP 250 <br> 2 ATP 500 <br> 4 ATP 1000<br> 1 Grand Slam</p>"
               }, {
                 "continent": "Asia",
-                "tournament": 8
+                "tournament": 8,
+                "desc": "<br><p align='justify' style='font-size:10px'> 4 ATP 250 <br> 3 ATP 500 <br> 1 ATP 1000</p>"
               }, {
                 "continent": "Oceania",
-                "tournament": 4
+                "tournament": 4,
+                "desc": "<br><p align='justify' style='font-size:10px'> 3 ATP 250 <br> 1 Grand Slam</p>"
               }, {
                 "continent": "South America",
-                "tournament": 5
+                "tournament": 5,
+                "desc": "<br><p align='justify' style='font-size:10px'> 3 ATP 250 <br> 1 ATP 500 <br> 1 ATP Finals</p>"
               }, {
                 "continent": "Africa",
                 "tournament": 1,
+                "desc": "<br><p align='justify' style='font-size:10px'> 1 ATP 250</p>"
               } ],
               "handDrawn": true,
               "pullOutRadius": 0,
               "radius": 80,
               "valueField": "tournament",
               "titleField": "continent",
+              "descriptionField": "desc",
               "balloon":{
                 "fixedPosition":true
               },
@@ -92,10 +99,14 @@
             var changeLine = function(event) {
                 var elemt = $(event.target);
                 var typeLine = elemt.text();
+                $("#change-line-button a").removeClass("active");
+                $(event.target).addClass("active");
                 switch (typeLine) {
                     case 'Distribution':
                         withLine = false;
                         $("#month-tournament").removeClass("visibility-hidden");
+                        $("#month-tournament a").removeClass("active");
+                        $("#month-tournament a").first().addClass("active");
                         break;
                     case 'Course':
                         withLine = true;
@@ -605,15 +616,50 @@
 
             $(document).ready(function() {
                 $('#fullpage').fullpage({
-                  sectionsColor: ['#ffffff', '#4BBFC3', 'whitesmoke', '#ccddff', '#7BAABE',],
+                  sectionsColor: ['#ffffff', '#bfe7ff', 'whitesmoke', '#ccddff', '#7BAABE',],
                   anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
                   menu: '#menu',
                 });
 
-                openModal = function(element) {
-                    $(".modal-body").html($(element).children().clone());
-                    $("#myModal").modal('show');
-                }
+                $("#tournament-gallery div").on('mouseover', function() {
+                    $(this).css('cursor', 'pointer');
+                });
+
+                $("#tournament-gallery div").on('click', function() {
+                    var valueDiv = $(this).attr('value');
+                    var description = "";
+                    var header = "";
+                    switch (valueDiv) {
+                        case "so":
+                            header = "Summer Olympics";
+                            description = "The tennis tournament at the 2016 Summer Olympics was held at the Olympic Tennis Centre, from 6 to 14 August.The competition was played on a fast hardcourt surface used in numerous North American tournaments that aims to minimize disruption for players. Initially a total of 172 players were expected to compete in five events: singles and doubles for both men and women and the return of the mixed doubles for the second consecutive time. However, eventually 105 male and 94 female players were granted places in the draws. The Olympic tennis events were run and organized by the Brazilian Olympic Committee (COB) and the International Tennis Federation (ITF), and were part of the Association of Tennis Professionals (ATP) and Women's Tennis Association (WTA) tours.";
+                            break;
+                        case "gs":
+                            header = "Grand Slam";
+                            description = "The Grand Slam tournaments, also called majors, are the four most-important annual tennis events. They offer the most ranking points, prize money, public and media attention, the greatest strength and size of field, and greater number of \"best of\" sets for men. The Grand Slam itinerary consists of the Australian Open in mid January, the French Open in May and June, Wimbledon in June and July, and the US Open in August and September. Each tournament is played over a period of two weeks.";
+                            break;
+                        case "af":
+                            header = "ATP Finals";
+                            description = "The ATP Finals is the second highest tier of men's tennis tournament after the four Grand Slam tournaments.It is held annually in November at the O2 Arena in London, United Kingdom. The ATP Finals are the season-ending championships of the Association of Tennis Professionals (ATP) World Tour, featuring the top eight singles players and doubles teams of the ATP Rankings. The tournament was first held in 1970.";
+                            break;
+                        case "a1000":
+                            header = "ATP Masters 1000";
+                            description = "The ATP World Tour Masters 1000 (previously known as the ATP Championship Series, Single-Week , ATP Super 9 , Tennis Masters Series , and ATP Masters Series) is the third highest tier of men's tennis tournament after the four Grand Slam tournaments and ATP World Tour Finals.Results in ATP Masters 1000 events earn players more world ranking points than regular tournaments, though not as many as Grand Slam events or the year-end ATP World Tour Finals. Up until 2007, most Masters Series finals were contested as best of five-set matches. Currently, all Masters Series events are decided in best of three-set matches.";
+                            break;
+                        case "a500":
+                            header = "ATP Masters 500";
+                            description = "The ATP World Tour 500 series (previously known as the ATP Championship Series and ATP International Series Gold) is the fourth highest tier of men's tennis tournament after the four Grand Slam tournaments, ATP World Tour Finals, and the ATP World Tour Masters 1000. The series includes 13 tournaments, with 500 rankings points awarded for the events' singles champions – which accounts for the name of the series. Tournaments have various draws of 32 and 48 for singles and 16 and 24 for doubles. It is mandatory for leading players to enter at least four 500 events, including at least one after the US Open; if they play fewer than four, or fail to play in one after the US Open they get a \"zero\" score towards their world ranking for each one short.";
+                            break;
+                        case "a250":
+                            header = "ATP Masters 250";
+                            description = "The ATP World Tour 250 series (previously known as the ATP World Series and ATP International Series) is the fifth highest tier of men's tennis tournament after the four Grand Slam tournaments,ATP World Tour Finals,ATP World Tour Masters 1000, and ATP World Tour 500. The series includes 40 tournaments, with 250 rankings points awarded to each singles champion –which accounts for the name of the series. Draws consist of 28, 32, or 48 for singles and 16 for doubles.";
+                            break;
+                    }
+                    $("#description-tournament").text(description);
+                    $(".modal-header").text(header);
+                    $("#myModal").modal("show");
+                });
+
             });
         </script>
     </head>
@@ -632,13 +678,27 @@
             </div>
             <div class="section" id="section1">
                 <div class="intro">
-                    <p>
-                    Association of Tennis Professionals (ATP) is an association formed in 1972 to protect the interest of male tennis players. Since 1990, ATP organized worldwide tennis tour for men, currently called ATP World Tour.
+                    <font color="#0c0c0c">  <b><h2> ATP World Tour 2016</h2></b><br></font>
+                    <p align="justify">
+                    <font color="#0c0c0c">                    
+                    <b>Association of Tennis Professionals (ATP)</b> is an association formed in 1972 to protect the interest of male tennis players. Since 1990, <b>ATP</b> organized worldwide tennis tour for men, currently called <b>ATP</b> World Tour.
 
-                    ATP World Tour is an annual event consisting of series of tournaments over the world.
-
-                    This Visualization will show the distribution of the tournaments over the world, the flow of the tournaments, and summary of the tournaments from ATP World Tour 2016.
+                    <b>ATP World Tour</b> is an annual event consisting of series of tournaments over the world.
+                    <br><br>
+                    This Visualization will show the :     <br>               
+                    <b>distribution of the tournaments over the world,</b><br>
+                    <b>the flow of the tournaments</b>, and<br>  
+                    <b>overview of the tournament from ATP World Tour 2016.</b> 
+                    </font>
                     </p>
+                </div>
+                <div id="tournament-gallery" class="m-t">
+                    <div class="circle image-summerolympic" value="so"></div>
+                    <div class="circle m-l-md image-grandslam" value="gs"></div>
+                    <div class="circle m-l-md image-atpfinals" value="af"></div>
+                    <div class="circle m-l-md image-atp1000" value="a1000"></div>
+                    <div class="circle m-l-md image-atp500" value="a500"></div>
+                    <div class="circle m-l-md image-atp250" value="a250"></div>
                 </div>
                 <!-- <div class="slide active" id="slide1">
                     <div class="intro">
@@ -662,14 +722,14 @@
                         </iframe>
                     </div>
                     <div id="line_toggle" class="col-lg-12 m-b-xs" style="text-align: left; padding-top: 5px;">
-                        <div class="btn-group btn-group-justified">
-                            <a type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</a>
+                        <div id="change-line-button" class="btn-group btn-group-justified">
+                            <a type="button" class="btn btn-default active" onclick="changeLine(event)">Distribution</a>
                             <a type="button" class="btn btn-default" onclick="changeLine(event)">Course</a>
                         </div>
                     </div>
                     <div class="col-lg-12 m-t-xs">
                         <div id="month-tournament" class="btn-group btn-group-justified">
-                            <a href="#" class="btn btn-default" onclick="changeMap(event)">ALL</a>
+                            <a href="#" class="btn btn-default active" onclick="changeMap(event)">ALL</a>
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">JAN</a>
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">FEB</a>
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">MAR</a>
@@ -689,15 +749,19 @@
             <div class="section" id="section3">
                 <div>
                     <div class="col-lg-6 plot-div" style="background-color: #eeeeee;">
+                        <h4>Tournamets by Conttinent</h4>
                         <div id="chartdiv" style="width: 100%; height: 250px"></div>
                     </div>
                     <div class="col-lg-6 plot-div" style="background-color: #eeeeee;">
+                        <h4>Tournamets by Months</h4>
                         <div id="chartdivbar" style="width: 100%; height: 250px"></div>
                     </div>
                     <div class="col-lg-6 plot-div" style="background-color: #eeeeee">
+                        <h4>Players Trophy</h4>
                         <div id="chartnation" style="width: 100%; height: 250px"></div>
                     </div>
                     <div class="col-lg-6 plot-div" style="background-color: #eeeeee">
+                        <h4>National Trophy</h4>
                         <div id="chartplayer" style="width: 100%; height: 250px"></div>
                     </div>
                 </div>
@@ -713,7 +777,7 @@
                 <h4 class="modal-title">Modal Header</h4>
               </div>
               <div class="modal-body">
-                <p>Some text in the modal.</p>
+                <p id="description-tournament" style="font-size: 14px" align="justify"></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
