@@ -30,8 +30,8 @@ var chart = AmCharts.makeChart("chartdiv", {
         "nation": "Spain",
         "single" : 10,
         "double" : 10,
-        "single_winner" : "Rafael Nadal, Pablo Carreno Busta, Feliciano Lopez, Roberto Bautista Agut, Nicolas Almagro, Albert Ramos-Vinolas, Fernando Verdasco",
-        "double_winner" : "Rafael Nadal, Pablo Carreno Busta, Marc Lopez, Feliciano Lopez, Marcel Granollers, David Marrero, Guillermo Garcia-Lopez"
+        "single_winner" : "Rafael Nadal \n Pablo Carreno Busta \n Feliciano Lopez \n Roberto Bautista Agut \n Nicolas Almagro \n Albert Ramos-Vinolas \n Fernando Verdasco",
+        "double_winner" : "Rafael Nadal \n Pablo Carreno Busta \n Marc Lopez \n Feliciano Lopez \n Marcel Granollers \n David Marrero \n Guillermo Garcia-Lopez"
         // "single_summer_olympic": 1,
         // "single_grand_slam": 1,
         // "single_atp_finals": 1,
@@ -41,8 +41,8 @@ var chart = AmCharts.makeChart("chartdiv", {
         "nation": "France",
         "single" : 5,
         "double" : 10, 
-        "single_winner" : "Nicolas Mahut, Richard Gasquet, Gael Monfils, Lucas Pouille",
-        "double_winner" : "Nicolas Mahut, Edouard Roger-Vasselin, Fabrice Martin"
+        "single_winner" : "Nicolas Mahut \n Richard Gasquet \n Gael Monfils \n Lucas Pouille",
+        "double_winner" : "Nicolas Mahut \n Edouard Roger-Vasselin \n Fabrice Martin"
         // "double_atp_finals": 1,
         // "double_atp_1000": 1,
         // "double_atp_500": 1,
@@ -53,7 +53,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "single" : 9,
         "double" : 5,
         "single_winner" : "Andy Murray",
-        "double_winner" : "Jamie Murray, Dominic Inglot"
+        "double_winner" : "Jamie Murray \n Dominic Inglot"
         // "single_grand_slam": 2,
         // "single_masters_1000": 4,
         // "single_masters_250": 1,
@@ -62,8 +62,8 @@ var chart = AmCharts.makeChart("chartdiv", {
         "single" : 2,
         "double" : 9,
         "mixed" : 1,
-        "single_winner" : "Steve Johnson, Sam Querrey",
-        "double_winner" : "Jack Sock, Bob Bryan, Mike Bryan, Rajeev Ram, Steve Johnson, Sam Querrey, John Isner, Eric Butorac, Scott Lipsky",
+        "single_winner" : "Steve Johnson \n Sam Querrey",
+        "double_winner" : "Jack Sock \n Bob Bryan \n Mike Bryan \n Rajeev Ram \n Steve Johnson \n Sam Querrey \n John Isner \n Eric Butorac \n Scott Lipsky",
         "mixed_winner" : "Jack Sock"
         // "double_atp_finals": 1,
         // "double_atp_1000": 1,
@@ -75,8 +75,8 @@ var chart = AmCharts.makeChart("chartdiv", {
         "single" : 4,
         "double" : 6,
         "mixed" : 1,
-        "single_winner" : "Marin Cilic, Ivo Karlovic",
-        "double_winner" : "Mate Pavic, Ivan Dodig",
+        "single_winner" : "Marin Cilic \n Ivo Karlovic",
+        "double_winner" : "Mate Pavic \n Ivan Dodig",
         "mixed_winner" : "Mate Pavic"
         // "double_atp_finals": 1,
         // "double_atp_1000": 1,
@@ -87,8 +87,8 @@ var chart = AmCharts.makeChart("chartdiv", {
         "nation": "Argentina",
         "single" : 4,
         "double" : 6,
-        "single_winner" : "Federico Delbonis, Juan Martin del Potro, Juan Monaco, Diego Schwartzman",
-        "double_winner" : "Horacio Zeballos, Guillermo Duran, Maximo Gonzalez, Andres Molteni"
+        "single_winner" : "Federico Delbonis \n Juan Martin del Potro \n Juan Monaco \n Diego Schwartzman",
+        "double_winner" : "Horacio Zeballos \n Guillermo Duran \n Maximo Gonzalez \n Andres Molteni"
         // "double_atp_finals": 1,
         // "double_atp_1000": 1,
         // "double_atp_500": 1,
@@ -99,7 +99,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "single" : 3,
         "double" : 6,
         "single_winner" : "Nick Kyrgios",
-        "double_winner" : "John Peers, Sam Groth, Chris Guccione"
+        "double_winner" : "John Peers \n Sam Groth \n Chris Guccione"
         // "double_atp_finals": 1,
         // "double_atp_1000": 1,
         // "double_atp_500": 1,
@@ -108,7 +108,7 @@ var chart = AmCharts.makeChart("chartdiv", {
     }, {
         "nation": "Serbia",
         "single" : 8,
-        "single_winner" : "Novak Djokovic, Viktor Troicki"
+        "single_winner" : "Novak Djokovic \n Viktor Troicki"
         // "double_atp_finals": 1,
         // "double_atp_1000": 1,
         // "double_atp_500": 1,
@@ -124,7 +124,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "nation": "Brazil",
         "double" : 6,
         "mixed" : 1,
-        "double_winner" : "Bruno Soares, Marcelo Melo",
+        "double_winner" : "Bruno Soares \n Marcelo Melo",
         "mixed_winner" : "Bruno Soares"
         // "double_atp_finals": 1,
         // "double_atp_1000": 1,
@@ -138,25 +138,25 @@ var chart = AmCharts.makeChart("chartdiv", {
         "gridAlpha": 0
     }],
     "graphs": [{
-        "balloonText": "<b>[[single_winner]]</b>",
+        "balloonText": "<span style='font-size:12px'><b> Men's Single Winning Player </b></span><br><hr>[[single_winner]]",
         "fillAlphas": 0.8,
         "labelText": "[[value]]",
         "lineAlpha": 0.3,
-        "title": "Men Single",
+        "title": "Men's Single",
         "type": "column",
         "color": "#000000",
         "valueField": "single"
     }, {
-        "balloonText": "<b>[[double_winner]]</b>",
+        "balloonText": "<span style='font-size:12px'><b> Men's Double Winning Player </b></span><br><hr>[[double_winner]]",
         "fillAlphas": 0.8,
         "labelText": "[[value]]",
         "lineAlpha": 0.3,
-        "title": "Men Double",
+        "title": "Men's Double",
         "type": "column",
         "color": "#000000",
         "valueField": "double"
     }, {
-        "balloonText": "<b>[[mixed_winner]]</b>",
+        "balloonText": "<span style='font-size:12px'><b> Mixed Double Winning Player </b></span><br><hr>[[mixed_winner]]",
         "fillAlphas": 0.8,
         "labelText": "[[value]]",
         "lineAlpha": 0.3,
