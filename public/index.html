@@ -72,8 +72,8 @@
 
             $(document).ready(function() {
                 $('#fullpage').fullpage({
-                  sectionsColor: ['#ffffff', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-                  anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+                  sectionsColor: ['#ffffff', '#4BBFC3', 'whitesmoke', '#ccddff'],
+                  anchors: ['firstPage', 'secondPage', '3rdPage', 'lastPage'],
                   menu: '#menu',
                 });
             });
@@ -324,24 +324,9 @@
 
             </div>
             <div class="section" id="section2">
-                <div class="intro">
-                    <h1>ABOUT</h1>
-                </div>
-                <div class="">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                </div>
-            </div>
-            <div class="section" id="section3">
                 <div class="col-lg-8">
-                    <div class="col-lg-12 m-b-xs" style="text-align: left">
-                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</button>
-                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Course</button>
-                    </div>
                     <div>
-                        <iframe id="mapiframe" src="ammap/without_lines_all.html" class="col-lg-12" style="height: 450px">
+                        <iframe id="mapiframe" src="ammap/without_lines_all.html" scrolling="no" class="col-lg-12" style="height: 450px; border: none; overflow: hidden;">
                             <p>Your browser does not support iframes.</p>
                         </iframe>
                     </div>
@@ -360,6 +345,12 @@
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">OCT</a>
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">NOV</a>
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">DEC</a>
+                        </div>
+                    </div>
+                    <div id="line_toggle" class="col-lg-12 m-b-xs" style="text-align: left; padding-top: 5px;">
+                        <div class="btn-group btn-group-justified">
+                            <a type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</a>
+                            <a type="button" class="btn btn-default" onclick="changeLine(event)">Course</a>
                         </div>
                     </div>
                 </div>
