@@ -70,14 +70,6 @@
               }
             } );
 
-            $(document).ready(function() {
-                $('#fullpage').fullpage({
-                  sectionsColor: ['#ffffff', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-                  anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-                  menu: '#menu',
-                });
-            });
-
             var changeMapFrame = function() {
                 var src = "";
                 switch (typeMap) {
@@ -100,9 +92,12 @@
                 switch (typeLine) {
                     case 'Distribution':
                         withLine = false;
+                        $("#month-tournament").removeClass("visibility-hidden");
                         break;
                     case 'Course':
                         withLine = true;
+                        typeMap = "ALL";
+                        $("#month-tournament").addClass("visibility-hidden");
                         break;
                 }
                 changeMapFrame();
@@ -293,6 +288,19 @@
                  }
 
             });
+
+            $(document).ready(function() {
+                $('#fullpage').fullpage({
+                  sectionsColor: ['#ffffff', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+                  anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+                  menu: '#menu',
+                });
+
+                openModal = function(element) {
+                    $(".modal-body").html($(element).children().clone());
+                    $("#myModal").modal('show');
+                }
+            });
         </script>
     </head>
 
@@ -302,6 +310,7 @@
             <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
             <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
             <li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+            <li data-menuanchor="lastPage"><a href="#lastPage">Fifth slide</a></li>
         </ul>
 
         <div id="fullpage">
@@ -335,18 +344,18 @@
                 </div>
             </div>
             <div class="section" id="section3">
-                <div class="col-lg-8">
-                    <div class="col-lg-12 m-b-xs" style="text-align: left">
-                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</button>
-                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Course</button>
-                    </div>
+                <div>
                     <div>
-                        <iframe id="mapiframe" src="ammap/without_lines_all.html" class="col-lg-12" style="height: 450px">
+                        <iframe id="mapiframe" src="ammap/without_lines_all.html" class="col-lg-12" style="height: 500px; border: 0px">
                             <p>Your browser does not support iframes.</p>
                         </iframe>
                     </div>
-                    <div class="col-lg-12 m-t-md">
-                        <div class="btn-group btn-group-justified">
+                    <div class="col-lg-12">
+                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Distribution</button>
+                        <button type="button" class="btn btn-default" onclick="changeLine(event)">Course</button>
+                    </div>
+                    <div class="col-lg-12 m-t-xs">
+                        <div id="month-tournament" class="btn-group btn-group-justified">
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">ALL</a>
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">JAN</a>
                             <a href="#" class="btn btn-default" onclick="changeMap(event)">FEB</a>
@@ -363,23 +372,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-body vertical-scroll-panel">
-                            <div style="background-color: #eeeeee; height: 250px">
-                                <div id="chartdiv" class="chart-div"></div>
-                            </div>
-                            <div style="background-color: #b3e5fc; height: 200px">
-                                <div id="chartdivbar"></div> 
-                            </div>
-                            <div style="background-color: green; height: 200px">
-                            </div>
-                            <div style="background-color: yellow; height: 200px">
-                            </div>
-                        </div>
+            </div>
+            <div class="section" id="section4">
+                <div id="gallerychart">
+                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee;" onclick="openModal(this);">
+                        <div id="chartdiv" style="width: 100%; height: 250px"></div>
+                    </div>
+                    <div class="col-lg-6 plot-div" style="background-color: #eeeeee;" onclick="openModal(this);">
+                        <div id="chartdivbar" style="width: 100%; height: 250px"></div>
+                    </div>
+                    <div class="col-lg-6 plot-div" style="background-color: yellow; height: 250px" onclick="openModal(this);">
+                    </div>
+                    <div class="col-lg-6 plot-div" style="background-color: green; height: 250px" onclick="openModal(this);">
                     </div>
                 </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
             </div>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the modal.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
         </div>
 
     </body>
