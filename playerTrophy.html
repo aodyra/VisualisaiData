@@ -1,0 +1,156 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+    width       : 100%;
+    height      : 500px;
+    font-size   : 11px;
+}           
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<!-- Chart code -->
+<script>
+var chart = AmCharts.makeChart("chartdiv", {
+    "type": "serial",
+    "theme": "light",
+    "legend": {
+        "horizontalGap": 10,
+        "maxColumns": 1,
+        "position": "right",
+        "useGraphSettings": true,
+        "markerSize": 10
+    },
+    "dataProvider": [{
+        "name": "Andy Murray",
+        "single" : 9
+        // "single_summer_olympic": 1,
+        // "single_grand_slam": 1,
+        // "single_atp_finals": 1,
+        // "single_masters_1000": 3,
+        // "single_masters_500": 3,
+    }, {
+        "name": "Henri Kontinen",
+        "double" : 7,
+        "mixed" : 1
+        // "double_atp_finals": 1,
+        // "double_atp_1000": 1,
+        // "double_atp_500": 1,
+        // "double_atp_250": 4,
+        // "mixed_grand_slam": 1
+    }, {
+        "year": "Novak Djokovic",
+        "single" : 7
+        // "single_grand_slam": 2,
+        // "single_masters_1000": 4,
+        // "single_masters_250": 1,
+    }, {
+        "name": "Nicolas Mahut",
+        "single" : 1,
+        "double" : 6
+        // "double_atp_finals": 1,
+        // "double_atp_1000": 1,
+        // "double_atp_500": 1,
+        // "double_atp_250": 4,
+        // "mixed_grand_slam": 1
+    }, {
+        "name": "Pierre-Hugues Herbert",
+        "double" : 5
+        // "double_atp_finals": 1,
+        // "double_atp_1000": 1,
+        // "double_atp_500": 1,
+        // "double_atp_250": 4,
+        // "mixed_grand_slam": 1
+    }, {
+        "name": "Mate Pavic",
+        "double" : 4,
+        "mixed" : 1
+        // "double_atp_finals": 1,
+        // "double_atp_1000": 1,
+        // "double_atp_500": 1,
+        // "double_atp_250": 4,
+        // "mixed_grand_slam": 1
+    }, {
+        "name": "John Peers",
+        "double" : 5
+        // "double_atp_finals": 1,
+        // "double_atp_1000": 1,
+        // "double_atp_500": 1,
+        // "double_atp_250": 4,
+        // "mixed_grand_slam": 1
+    }, {
+        "name": "Stan Wawrinka",
+        "single" : 4
+        // "double_atp_finals": 1,
+        // "double_atp_1000": 1,
+        // "double_atp_500": 1,
+        // "double_atp_250": 4,
+        // "mixed_grand_slam": 1
+    }, {
+        "name": "Bruno Soares",
+        "double" : 3,
+        "mixed" : 1        
+    }, {
+        "name": "Rafael Nadal",
+        "single" : 2,
+        "double" : 2
+        // "double_atp_finals": 1,
+        // "double_atp_1000": 1,
+        // "double_atp_500": 1,
+        // "double_atp_250": 4,
+        // "mixed_grand_slam": 1
+    }],
+    "valueAxes": [{
+        "stackType": "regular",
+        "axisAlpha": 0.5,
+        "gridAlpha": 0
+    }],
+    "graphs": [{
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "Men Single",
+        "type": "column",
+        "color": "#000000",
+        "valueField": "single"
+    }, {
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "Men Double",
+        "type": "column",
+        "color": "#000000",
+        "valueField": "double"
+    }, {
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "Mixed Double",
+        "type": "column",
+        "color": "#000000",
+        "valueField": "mixed"
+    }],
+    "rotate": true,
+    "categoryField": "name",
+    "categoryAxis": {
+        "gridPosition": "start",
+        "axisAlpha": 0,
+        "gridAlpha": 0,
+        "position": "left"
+    },
+    "export": {
+        "enabled": true
+     }
+});
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>   
