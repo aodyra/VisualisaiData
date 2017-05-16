@@ -1,0 +1,200 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<!-- Chart code -->
+<script>
+var chart = AmCharts.makeChart("chartdiv", {
+    "type": "serial",
+  "theme": "light",
+    "legend": {
+        "horizontalGap": 10,
+        "maxColumns": 1,
+        "position": "right",
+    "useGraphSettings": true,
+    "markerSize": 10
+    },
+    "dataProvider": [{
+        "month": "January",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        "grand_slam": 1,
+        // "atp_1000": 0,
+        // "atp_500": 0,
+        "atp_250": 5
+    }, {
+        "month": "February",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        // "grand_slam": 0,
+        // "atp_1000": 0,
+        "atp_500": 4,
+        "atp_250": 8
+    }, {
+        "month": "March",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        // "grand_slam": 0,
+        "atp_1000": 1,
+        // "atp_500": 0,
+        // "atp_250": 0
+    }, {
+        "month": "April",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        // "grand_slam": 0,
+        "atp_1000": 2,
+        "atp_500": 1,
+        "atp_250": 3
+        }, {
+        "month": "May",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        // "grand_slam": 0,
+        "atp_1000": 2,
+        // "atp_500": 0,
+        "atp_250": 5
+        }, {
+        "month": "June",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        "grand_slam": 1,
+        // "atp_1000": 0,
+        "atp_500": 3,
+        "atp_250": 2
+        }, {
+        "month": "July",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        "grand_slam": 1,
+        "atp_1000": 1,
+        "atp_500": 2,
+        "atp_250": 5
+        }, {
+        "month": "August",
+        "summer_olympic": 1,
+        // "atp_finals": 0,
+        // "grand_slam": 0,
+        "atp_1000": 1,
+        // "atp_500": 0,
+        "atp_250": 3
+        }, {
+        "month": "September",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        "grand_slam": 1,
+        // "atp_1000": 0,
+        // "atp_500": 0,
+        "atp_250": 2
+        }, {
+        "month": "October",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        // "grand_slam": 0,
+        "atp_1000": 1,
+        "atp_500": 4,
+        "atp_250": 5
+        }, {
+        "month": "November",
+        // "summer_olympic": 0,
+        "atp_finals": 1,
+        // "grand_slam": 0,
+        "atp_1000": 1,
+        // "atp_500": 0,
+        // "atp_250": 0
+        }, {
+        "month": "December",
+        // "summer_olympic": 0,
+        // "atp_finals": 0,
+        // "grand_slam": 0,
+        // "atp_1000": 0,
+        // "atp_500": 0,
+        // "atp_250": 0
+    }],
+    "valueAxes": [{
+        "stackType": "regular",
+        "axisAlpha": 0.3,
+        "gridAlpha": 0
+    }],
+    "graphs": [{
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "ATP World Tour Masters 250",
+        "type": "column",
+    "color": "#000000",
+        "valueField": "atp_250"
+    }, {
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "ATP World Tour Masters 500",
+        "type": "column",
+    "color": "#000000",
+        "valueField": "atp_500"
+    }, {
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "ATP World Tour Masters 1000",
+        "type": "column",
+    "color": "#000000",
+        "valueField": "atp_1000"
+    }, {
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "Grand Slam",
+        "type": "column",
+    "color": "#000000",
+        "valueField": "grand_slam"
+    }, {
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "ATP World Tour Finals",
+        "type": "column",
+    "color": "#000000",
+        "valueField": "atp_finals"
+    }, {
+        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+        "fillAlphas": 0.8,
+        "labelText": "[[value]]",
+        "lineAlpha": 0.3,
+        "title": "Summer Olympic",
+        "type": "column",
+    "color": "#000000",
+        "valueField": "summer_olympic"
+    }],
+    "categoryField": "month",
+    "categoryAxis": {
+        "gridPosition": "start",
+        "axisAlpha": 0,
+        "gridAlpha": 0,
+        "position": "left"
+    },
+    "export": {
+      "enabled": true
+     }
+
+});
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div> 
