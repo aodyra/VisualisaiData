@@ -1,0 +1,52 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/pie.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<!-- Chart code -->
+<script>
+var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "pie",
+  "theme": "light",
+  "dataProvider": [ {
+    "continent": "Europe",
+    "tournament": 35
+  }, {
+    "continent": "North America",
+    "tournament": 14
+  }, {
+    "continent": "Asia",
+    "tournament": 8
+  }, {
+    "continent": "Oceania",
+    "tournament": 4
+  }, {
+    "continent": "South America",
+    "tournament": 5
+  }, {
+    "continent": "Africa",
+    "tournament": 1
+  } ],
+  "valueField": "tournament",
+  "titleField": "continent",
+  "balloon":{
+    "fixedPosition":false
+  },
+  "export": {
+    "enabled": false
+  }
+} );
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
